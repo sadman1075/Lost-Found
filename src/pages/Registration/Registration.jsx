@@ -9,15 +9,15 @@ import AuthContext from "../../Context/AuthContext";
 
 
 const Registration = () => {
-    const {googlesignin,createUser}=useContext(AuthContext)
-    const navigate=useNavigate()
+    const { googlesignin, createUser, updateProfileuser,setUser } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handlegooglesignin = () => {
 
         googlesignin()
             .then(result => {
                 toast.success("successfully Sign Up")
                 navigate("/")
-                
+
             })
             .catch(error => {
                 toast.error(error.message)
@@ -28,6 +28,7 @@ const Registration = () => {
         e.preventDefault();
         const from = e.target;
         const name = from.name.value;
+        const photo = from.photo.value;
         const email = from.email.value;
         const password = from.password.value;
         const registerinfo = {
@@ -36,16 +37,23 @@ const Registration = () => {
         console.log(registerinfo)
 
         if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password)) {
-           return toast.error("Password contains Minimum six characters, at least one uppercase letter, one lowercase letter and one number")
+            return toast.error("Password contains Minimum six characters, at least one uppercase letter, one lowercase letter and one number")
         }
-        createUser(email,password)
-        .then(result=>{
-            toast.success("successfully Sign up")
-            navigate("/")
-        })
-        .catch(error=>{
-            toast.error(error.message)
-        })
+        createUser(email, password)
+            .then(result => {
+                toast.success("successfully Created User")
+                updateProfileuser({ displayName: name,photoURL:photo })
+                .then(result=>{
+                    setUser((previoususer)=>{
+                        return {...previoususer,displayName:name,photoURL:photo}
+                    })
+                })
+                from.reset();
+                navigate("/")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
 
     }
     return (
@@ -63,6 +71,12 @@ const Registration = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text " name="name" placeholder="Enter your Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" placeholder="Enter your Photo Url" name="photo" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
