@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import about from "../../../public/about.jpg"
-
+import Aos from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const About = () => {
+    useEffect(() => {
+        Aos.init()
+    }, [])
     return (
         <div className="-mt-10 mb-10 lg:-mt-40 lg:mb-32" data-aos="zoom-in" data-aos-duration="2000">
             <div className="hero bg-base-100 ">
