@@ -2,14 +2,14 @@ import Lottie from "lottie-react";
 import register_lottie from "../../assets/Register_lottie/Animation - 1734093605552.json";
 import toast from "react-hot-toast";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 
 
 const Registration = () => {
-    const { googlesignin, createUser, updateProfileuser,setUser } = useContext(AuthContext)
+    const { googlesignin, createUser, updateProfileuser, setUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const handlegooglesignin = () => {
 
@@ -42,12 +42,12 @@ const Registration = () => {
         createUser(email, password)
             .then(result => {
                 toast.success("successfully Created User")
-                updateProfileuser({ displayName: name,photoURL:photo })
-                .then(result=>{
-                    setUser((previoususer)=>{
-                        return {...previoususer,displayName:name,photoURL:photo}
+                updateProfileuser({ displayName: name, photoURL: photo })
+                    .then(result => {
+                        setUser((previoususer) => {
+                            return { ...previoususer, displayName: name, photoURL: photo }
+                        })
                     })
-                })
                 from.reset();
                 navigate("/")
             })
@@ -100,6 +100,7 @@ const Registration = () => {
                         <div className="form-control  ">
                             <button onClick={handlegooglesignin} className="btn bg-black text-white "><FcGoogle />Sign in with Google</button>
                         </div>
+                        <p className="text-sm lg:text-lg text-center">Already Have An Account? <Link className="text-red-500 font-bold" to={"/login"}>Login</Link></p>
 
                     </form>
 

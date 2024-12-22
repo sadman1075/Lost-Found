@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -75,6 +75,7 @@ const Login = () => {
                         <div className="form-control  ">
                             <button onClick={handlegooglesignin} className="btn bg-black text-white "><FcGoogle />Sign in with Google</button>
                         </div>
+                        <p className="text-sm text-center lg:text-lg">Don't Have An Account? <Link className="text-red-500 font-bold" to={"/register"}>Register</Link></p>
 
                     </form>
 
