@@ -7,6 +7,8 @@ import Error from "../pages/Error/Error";
 import About from "../pages/About/About";
 import PrivateRoutes from "./PrivateRoutes";
 import AddLostFoundItems from "../pages/AddLostFoundItems/AddLostFoundItems";
+import LostFoundItems from "../pages/LostFoundItems/LostFoundItems";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router=createBrowserRouter([
     {
@@ -31,8 +33,16 @@ export const router=createBrowserRouter([
                 element:<About></About>
             },
             {
+                path:"/aboutus",
+                element:<AboutUs></AboutUs>
+            },
+            {
                 path:"/add-lost-found-item",
                 element:<PrivateRoutes><AddLostFoundItems></AddLostFoundItems></PrivateRoutes>
+            },
+            {
+                path:"/lost-found-items",
+                element:<LostFoundItems></LostFoundItems>
             }
         ]
 

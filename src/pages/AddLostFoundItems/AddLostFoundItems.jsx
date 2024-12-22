@@ -2,28 +2,50 @@ import { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const AddLostFoundItems = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
-    const handleAddLostFoundItem=(e)=>{
+    const handleAddLostFoundItem = (e) => {
         e.preventDefault();
-        const from=e.target;
-        const postType=from.postType.value;
-        const image=from.image.value;
-        const title=from.title.value;
-        const description=from.description.value;
-        const category=from.category.value;
-        const location=from.location.value;
-        const date=from.date.value;
-        const email=from.email.value;
-        const name=from.name.value;
+        const from = e.target;
+        const postType = from.postType.value;
+        const image = from.image.value;
+        const title = from.title.value;
+        const description = from.description.value;
+        const category = from.category.value;
+        const location = from.location.value;
+        const date = from.date.value;
+        const email = from.email.value;
+        const name = from.name.value;
 
-        const newPost={
-            postType,image,title,description,category,location,date,email,name
+        const newPost = {
+            postType, image, title, description, category, location, date, email, name
         }
         console.log(newPost)
+
+        fetch("http://localhost:5000/lost-found-items", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newPost)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You have successfully posted!",
+                        icon: "success"
+                    });
+                }
+            })
+
 
     }
 
@@ -115,7 +137,7 @@ const AddLostFoundItems = () => {
                 </div>
                 <div className="lg:flex justify-center">
                     <div className=" form-control lg:w-[690px] mt-6 ">
-                        <button className="btn bg-black text-white border-2 border-[#331A15] rancho text-lg ">Add Campaign</button>
+                        <button className="btn bg-black text-white border-2 border-[#331A15] rancho text-lg ">Add Post</button>
                     </div>
                 </div>
             </form>
