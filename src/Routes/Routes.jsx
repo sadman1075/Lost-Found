@@ -5,6 +5,8 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Error from "../pages/Error/Error";
 import About from "../pages/About/About";
+import PrivateRoutes from "./PrivateRoutes";
+import AddLostFoundItems from "../pages/AddLostFoundItems/AddLostFoundItems";
 
 export const router=createBrowserRouter([
     {
@@ -27,6 +29,10 @@ export const router=createBrowserRouter([
             {
                 path:"/about",
                 element:<About></About>
+            },
+            {
+                path:"/add-lost-found-item",
+                element:<PrivateRoutes><AddLostFoundItems></AddLostFoundItems></PrivateRoutes>
             }
         ]
 
