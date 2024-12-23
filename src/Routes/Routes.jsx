@@ -9,6 +9,10 @@ import PrivateRoutes from "./PrivateRoutes";
 import AddLostFoundItems from "../pages/AddLostFoundItems/AddLostFoundItems";
 import LostFoundItems from "../pages/LostFoundItems/LostFoundItems";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import ManageMyItems from "../pages/ManageMyItems/ManageMyItems";
+import UpdateMyLostFoundItems from "../pages/UpdateMyLostFoundItems/UpdateMyLostFoundItems";
+import Loader from "../pages/Loader/Loader";
+import LostFoundDetails from "../pages/LostFoundDetails/LostFoundDetails";
 
 export const router=createBrowserRouter([
     {
@@ -43,7 +47,23 @@ export const router=createBrowserRouter([
             {
                 path:"/lost-found-items",
                 element:<LostFoundItems></LostFoundItems>
-            }
+            },
+            {
+                path:"/my-lost-found-items",
+                element:<PrivateRoutes><ManageMyItems></ManageMyItems></PrivateRoutes>
+            },
+            {
+                path:"/update/:id",
+                element:<PrivateRoutes><UpdateMyLostFoundItems></UpdateMyLostFoundItems></PrivateRoutes>,
+                loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+            },
+           {
+             path:"/details/:id",
+             element:<PrivateRoutes><LostFoundDetails></LostFoundDetails></PrivateRoutes>,
+             loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+           }
+
+           
         ]
 
     },
