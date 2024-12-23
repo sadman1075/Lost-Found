@@ -30,14 +30,7 @@ const LostFoundDetails = () => {
         }
 
         console.log(Recover)
-        axios.post("http://localhost:5000/recover", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(Recover)
-
-        })
+        axios.post("http://localhost:5000/recover", Recover)
             .then(res =>{
                 if(res.data.insertedId){
                     toast.success("Successfully Submit")
