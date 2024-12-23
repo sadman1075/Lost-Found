@@ -58,7 +58,7 @@ export const router=createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
             },
            {
-             path:"/details/:id",
+             path:"/details/:i",
              element:<PrivateRoutes><LostFoundDetails></LostFoundDetails></PrivateRoutes>,
              loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
            }
