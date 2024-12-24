@@ -29,21 +29,21 @@ const ManageMyItems = () => {
 
                 const { data: myLostFoundItems, refetch } = useQuery({
                     queryKey: ["myLostFoundItems"],
-                    queryFn: axios.delete(`http://localhost:5000/lost-found-items/${id}`)
+                    queryFn: axios.delete(`http://localhost:5000/lost-found-items/${id}`, { withCredentials: true })
                         .then(res => {
-                            
+
                             if (res.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: "Deleted!",
                                     text: "Your file has been deleted.",
                                     icon: "success",
-                                    
+
                                 });
                                 refetch()
-                                
+
                             }
 
-                           
+
                         })
 
                 })

@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import AuthContext from "./AuthContext";
 import { useEffect, useState } from "react";
 import auth from "../Firebase/Firebase";
+import axios from "axios";
 
 const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
@@ -27,20 +28,36 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    const updateProfileuser=(updateuserProfile)=>{
+    const updateProfileuser = (updateuserProfile) => {
         setLoading(true)
-        return updateProfile(auth.currentUser,updateuserProfile)
+        return updateProfile(auth.currentUser, updateuserProfile)
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            setLoading(false)
+            console.log("state captured", currentUser?.email)
+            if (currentUser?.email) {
+                const user = { email: currentUser.email }
+
+
+                axios.post("http://localhost:5000/jwt", user,{withCredentials:true})
+                    .then(res => console.log("login", res.data))
+                setLoading(false)
+            }
+
+
+            else {
+                axios.post("http://localhost:5000/logout", {}, { withCredentials: true })
+                    .then(res => console.log("logout", res.data))
+                setLoading(false)
+            }
+
         })
         return () => unsubscribe()
     }, [])
 
-    const authinfo = { googlesignin, createUser, loginUser,updateProfileuser, loading, user,setUser, logout }
+    const authinfo = { googlesignin, createUser, loginUser, updateProfileuser, loading, user, setUser, logout }
     return (
         <div>
             <AuthContext.Provider value={authinfo}>

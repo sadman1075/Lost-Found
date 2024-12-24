@@ -80,7 +80,7 @@ const Header = () => {
                                         </div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                             <li><Link to={"/add-lost-found-item"}>Add Lost & Found Item </Link></li>
-                                            <li><Link to={""}>All Recovered Items </Link></li>
+                                            <li><Link to={"/my-all-recovery"}>All Recovered Items </Link></li>
                                             <li><Link to={"/my-lost-found-items"}>Manage My Items </Link></li>
 
                                         </ul>

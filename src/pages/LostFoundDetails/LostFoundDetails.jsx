@@ -34,6 +34,7 @@ const LostFoundDetails = () => {
             .then(res =>{
                 if(res.data.insertedId){
                     toast.success("Successfully Submit")
+                    navigate(-1)
                   
                 }
             })

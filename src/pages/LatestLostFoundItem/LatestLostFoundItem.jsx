@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const LatestLostFoundItem = ({lostFoundItem }) => {
-    const { postType, description, title, image, category, date, location, name, email } = lostFoundItem
+    const {_id, postType, description, title, image, category, date, location, name, email } = lostFoundItem
 
     return (
         <div className="card card-compact bg-base-100 w-full shadow-xl" data-aos="zoom-in" data-aos-duration="2000">
@@ -18,7 +18,7 @@ const LatestLostFoundItem = ({lostFoundItem }) => {
                 <p><b>Location: </b>  {location}</p>
                 <p><b>Date: </b>  {date}</p>
                 <div className="card-actions justify-end">
-                    <Link to={``} className="btn bg-black text-white">See Details</Link>
+                    <Link to={`/details/${_id}`} className="btn bg-black text-white">See Details</Link>
                 </div>
             </div>
         </div>

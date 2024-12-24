@@ -1,6 +1,12 @@
+import Aos from "aos";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import 'aos/dist/aos.css';
 
 const LostFoundItem = ({lostFoundItem}) => {
+        useEffect(() => {
+            Aos.init()
+        }, [])
     const {_id,postType,description,title,image,category,date,location,name,email}=lostFoundItem
     return (
         <div className="card card-compact bg-base-100 w-full shadow-xl" data-aos="zoom-in" data-aos-duration="2000">

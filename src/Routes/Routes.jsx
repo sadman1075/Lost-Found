@@ -13,62 +13,72 @@ import ManageMyItems from "../pages/ManageMyItems/ManageMyItems";
 import UpdateMyLostFoundItems from "../pages/UpdateMyLostFoundItems/UpdateMyLostFoundItems";
 import Loader from "../pages/Loader/Loader";
 import LostFoundDetails from "../pages/LostFoundDetails/LostFoundDetails";
+import MyAllRecoverItems from "../pages/MyAllRecoverItems/MyAllRecoverItems";
+import MyAllRecoverItemCard from "../pages/MyAllRecoverItems/MyAllRecoverItemCard";
 
-export const router=createBrowserRouter([
+export const router = createBrowserRouter([
     {
-        path:"/",
-        element:<Root></Root>,
-        children:[
+        path: "/",
+        element: <Root></Root>,
+        children: [
             {
-                path:"/",
-                element:<Home></Home>
+                path: "/",
+                element: <Home></Home>
             },
             {
-                path:"/login",
-                element:<Login></Login>
+                path: "/login",
+                element: <Login></Login>
             },
             {
-                path:"/register",
-                element:<Registration></Registration>
+                path: "/register",
+                element: <Registration></Registration>
 
             },
             {
-                path:"/about",
-                element:<About></About>
+                path: "/about",
+                element: <About></About>
             },
             {
-                path:"/aboutus",
-                element:<AboutUs></AboutUs>
+                path: "/aboutus",
+                element: <AboutUs></AboutUs>
             },
             {
-                path:"/add-lost-found-item",
-                element:<PrivateRoutes><AddLostFoundItems></AddLostFoundItems></PrivateRoutes>
+                path: "/add-lost-found-item",
+                element: <PrivateRoutes><AddLostFoundItems></AddLostFoundItems></PrivateRoutes>
             },
             {
-                path:"/lost-found-items",
-                element:<LostFoundItems></LostFoundItems>
+                path: "/lost-found-items",
+                element: <LostFoundItems></LostFoundItems>
             },
             {
-                path:"/my-lost-found-items",
-                element:<PrivateRoutes><ManageMyItems></ManageMyItems></PrivateRoutes>
+                path: "/my-lost-found-items",
+                element: <PrivateRoutes><ManageMyItems></ManageMyItems></PrivateRoutes>
             },
             {
-                path:"/update/:id",
-                element:<PrivateRoutes><UpdateMyLostFoundItems></UpdateMyLostFoundItems></PrivateRoutes>,
-                loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+                path: "/update/:id",
+                element: <PrivateRoutes><UpdateMyLostFoundItems></UpdateMyLostFoundItems></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/lost-found-items/${params.id}`)
             },
-           {
-             path:"/details/:id",
-             element:<PrivateRoutes><LostFoundDetails></LostFoundDetails></PrivateRoutes>,
-             loader:({params})=>fetch(`http://localhost:5000/lost-found-items/${params.id}`)
-           }
+            {
+                path: "/details/:id",
+                element: <PrivateRoutes><LostFoundDetails></LostFoundDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+            },
+            {
+                path: "/my-all-recovery",
+                element: <PrivateRoutes><MyAllRecoverItems></MyAllRecoverItems></PrivateRoutes>
+            },
+            {
+                path: "/my-all-recovery-card",
+                element: <PrivateRoutes><MyAllRecoverItemCard></MyAllRecoverItemCard></PrivateRoutes>
+            }
 
-           
+
         ]
 
     },
     {
-        path:"*",
-        element:<Error></Error>
+        path: "*",
+        element: <Error></Error>
     }
 ])
