@@ -29,3 +29,34 @@ A secure way to contact individuals who reported lost or found items.
 
 Responsive Design
 Optimized for all devices – desktops, tablets, and mobiles.
+
+## Technology Stack for Development
+<li>Frontend: HTML, CSS, JavaScript, React.js.</li> 
+<li>Backend: Node.js,express js</li>
+<li>Database: MongoDB.</li>
+<li>Authentication:Firebase</li>
+
+## Core Features:
+<li>✔️ User Registration & Authentication
+</li>
+<li>✔️ Report Lost & Found Items
+
+<li>✔️ Search Items by Category, Location, and Date
+
+</li>
+<li>✔️ Contact System for Item Claiming
+
+</li>
+<li>✔️ Image Upload for Better Identification
+
+</li>
+
+## Dependencies
+<li>Ensure you have Node.js installed</li>
+<li>Ensure React is Installed</li>
+
+## How to Run Locally
+<li>1️⃣ Clone the repository</li>
+<li>2️⃣ Navigate to the project directory</li>
+<li>3️⃣ Install dependencies</li>
+<li>4️⃣ Start the development server</li>
