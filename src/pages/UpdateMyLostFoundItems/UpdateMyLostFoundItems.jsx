@@ -31,7 +31,7 @@ const UpdateMyLostFoundItems = () => {
             postType, image, title, description, category, location, date, email, name
         }
 
-        fetch(`http://localhost:5000/lost-found-items/${_id}`, {
+        fetch(`https://lost-and-found-server-gamma.vercel.app/lost-found-items/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

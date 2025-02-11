@@ -15,13 +15,13 @@ const MyAllRecoverItems = () => {
 
     const { data, isPending, refetch } = useQuery({
         queryKey: ["donation", user?.email],
-        queryFn: async () => fetch(`http://localhost:5000/recover?email=${user?.email}`)
+        queryFn: async () => fetch(`https://lost-and-found-server-gamma.vercel.app/recover?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setAllrecovers(data))
 
     })
 
-    if(isPending){
+    if (isPending) {
         return <Loader></Loader>
     }
     return (

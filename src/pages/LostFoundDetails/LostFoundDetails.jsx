@@ -32,7 +32,7 @@ const LostFoundDetails = () => {
         }
 
         console.log(Recover)
-        axios.post("http://localhost:5000/recover", Recover)
+        axios.post("https://lost-and-found-server-gamma.vercel.app/recover", Recover)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success("Successfully Submit")

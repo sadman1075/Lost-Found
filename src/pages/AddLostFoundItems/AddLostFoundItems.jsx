@@ -33,7 +33,7 @@ const AddLostFoundItems = () => {
         console.log(date)
         console.log(newPost)
 
-        fetch("http://localhost:5000/lost-found-items", {
+        fetch("https://lost-and-found-server-gamma.vercel.app/lost-found-items", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -51,7 +51,7 @@ const AddLostFoundItems = () => {
                     });
 
                     from.reset()
-                    
+
                 }
             })
 

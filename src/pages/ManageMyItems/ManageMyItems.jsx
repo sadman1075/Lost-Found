@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { format } from "date-fns";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Loader from "../Loader/Loader";
 
 const ManageMyItems = () => {
     const [myLostFoundItems, setMyLostFoundItems] = useState(null)
@@ -14,17 +15,19 @@ const ManageMyItems = () => {
 
 
     // useEffect(() => {
-    //     axios.get(`http://localhost:5000/lost-found-items?email=${user?.email}`)
+    //     axios.get(`https://lost-and-found-server-gamma.vercel.app/lost-found-items?email=${user?.email}`)
     //         .then(res => setMyLostFoundItems(res.data))
     // }, [user?.email])
 
-    const { data: ono, refetch } = useQuery({
+    const { data: ono, refetch, isPending } = useQuery({
         queryKey: ["myLostFoundItems"],
-        queryFn: axios.get(`http://localhost:5000/lost-found-items?email=${user?.email}`)
+        queryFn: axios.get(`https://lost-and-found-server-gamma.vercel.app/lost-found-items?email=${user?.email}`)
             .then(data => setMyLostFoundItems(data.data))
 
     })
-
+    if (isPending) {
+        return <Loader></Loader>
+    }
 
     const handleDelete = id => {
         Swal.fire({
@@ -40,7 +43,7 @@ const ManageMyItems = () => {
 
                 const { data: data } = useQuery({
                     queryKey: ["myLostFoundItems"],
-                    queryFn: axios.delete(`http://localhost:5000/lost-found-items/${id}`, { withCredentials: true })
+                    queryFn: axios.delete(`https://lost-and-found-server-gamma.vercel.app/lost-found-items/${id}`, { withCredentials: true })
                         .then(res => {
 
                             if (res.data.deletedCount > 0) {

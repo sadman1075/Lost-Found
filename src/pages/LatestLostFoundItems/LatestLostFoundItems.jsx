@@ -9,9 +9,9 @@ const LatestLostFoundItems = () => {
     const [lostFoundItems, setLostFoundItems] = useState(null)
 
 
-    const { data, isPending} = useQuery({
+    const { data, isPending } = useQuery({
         queryKey: ["donation"],
-        queryFn: async () => fetch("http://localhost:5000/latest-lost-found-items")
+        queryFn: async () => fetch("https://lost-and-found-server-gamma.vercel.app/latest-lost-found-items")
             .then(res => res.json())
             .then(data => setLostFoundItems(data))
     })

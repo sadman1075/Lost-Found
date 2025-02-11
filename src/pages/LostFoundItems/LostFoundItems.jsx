@@ -13,7 +13,7 @@ const LostFoundItems = () => {
 
     const { data, isPending, refetch } = useQuery({
         queryKey: ["donation"],
-        queryFn: async () => fetch("http://localhost:5000/lost-found-items")
+        queryFn: async () => fetch("https://lost-and-found-server-gamma.vercel.app/lost-found-items")
             .then(res => res.json())
             .then(data => setLostFoundItems(data))
     })
@@ -21,9 +21,9 @@ const LostFoundItems = () => {
     if (isPending) {
         return <Loader></Loader>
     }
- 
+
     const handleSearch = () => {
-        axios.get(`http://localhost:5000/lost-found-items?search=${search}`)
+        axios.get(`https://lost-and-found-server-gamma.vercel.app/lost-found-items?search=${search}`)
             .then(data => setLostFoundItems(data.data))
     }
     return (

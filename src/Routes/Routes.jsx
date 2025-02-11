@@ -57,12 +57,12 @@ export const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <PrivateRoutes><UpdateMyLostFoundItems></UpdateMyLostFoundItems></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+                loader: ({ params }) => fetch(`https://lost-and-found-server-gamma.vercel.app/lost-found-items/${params.id}`)
             },
             {
                 path: "/details/:id",
                 element: <PrivateRoutes><LostFoundDetails></LostFoundDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/lost-found-items/${params.id}`)
+                loader: ({ params }) => fetch(`https://lost-and-found-server-gamma.vercel.app/lost-found-items/${params.id}`)
             },
             {
                 path: "/my-all-recovery",
