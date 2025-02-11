@@ -52,7 +52,7 @@ const UpdateMyLostFoundItems = () => {
             })
     }
     return (
-        <div>
+        <div className="pt-24">
             <Helmet>
                 <title>Update My Lost Found Items | Lost & Found</title>
             </Helmet>

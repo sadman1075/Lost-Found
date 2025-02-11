@@ -15,7 +15,7 @@ const AboutUs = () => {
             <Helmet>
                 <title>AboutUs | Lost & Found</title>
             </Helmet>
-            <div className="mt-10 mb-20" data-aos="zoom-in" data-aos-duration="2000">
+            <div className="pt-32 mb-20" data-aos="zoom-in" data-aos-duration="2000">
                 <div className="hero bg-base-100 ">
                     <div className="hero-content flex-col lg:flex-row gap-5">
                         <div className="w-full lg:w-1/2">

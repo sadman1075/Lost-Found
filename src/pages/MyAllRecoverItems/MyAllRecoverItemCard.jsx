@@ -29,7 +29,7 @@ const MyAllRecoverItemCard = () => {
 
 
 return (
-    <div>
+    <div className='pt-24'>
         <Helmet>
             <title>My Recovered Item | Lost & Found</title>
         </Helmet>

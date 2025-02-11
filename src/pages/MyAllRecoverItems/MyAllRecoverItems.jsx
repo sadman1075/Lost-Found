@@ -25,11 +25,11 @@ const MyAllRecoverItems = () => {
         return <Loader></Loader>
     }
     return (
-        <div>
+        <div className="pt-24 ">
             <Helmet>
                 <title>My Recover Item | Lost & Found</title>
             </Helmet>
-            <div className="flex justify-end gap-4">
+            <div className="flex justify-end  gap-4">
                 <Link className="btn" to={"/my-all-recovery"}><LuTableOfContents className="text-xl " /></Link>
                 <Link className="btn" to={"/my-all-recovery-card"}><CgMenuGridO className='text-xl' /></Link>
 

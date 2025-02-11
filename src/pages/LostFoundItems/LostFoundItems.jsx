@@ -31,7 +31,7 @@ const LostFoundItems = () => {
             <Helmet>
                 <title>Lost Found Items | Lost & Found</title>
             </Helmet>
-            <div className="flex gap-2 mt-4 justify-center items-center">
+            <div className="flex gap-2 pt-4 justify-center items-center">
                 <input type="text" placeholder="Search" className="input input-bordered w-40 md:w-auto" onChange={e => setSearch(e.target.value)} />
                 <button className="btn  bg-black text-white" onClick={handleSearch}>Search</button>
 

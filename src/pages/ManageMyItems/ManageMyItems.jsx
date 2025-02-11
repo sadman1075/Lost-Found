@@ -62,7 +62,7 @@ const ManageMyItems = () => {
         })
     }
     return (
-        <div className="mt-10 mb-20">
+        <div className="pt-28 mb-20">
             <Helmet>
                 <title>Manage My Items | Lost & Found</title>
             </Helmet>
