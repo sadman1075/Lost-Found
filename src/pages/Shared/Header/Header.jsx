@@ -22,7 +22,7 @@ const Header = () => {
     }
     return (
         <div>
-            <div className="navbar  bg-black text-white hover:text-white fixed z-10 max-w-7xl mx-auto">
+            <div className="navbar  bg-black text-white hover:text-white opacity-80 fixed z-10 max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const Header = () => {
 
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-black opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><Link to={"/"}>Home</Link></li>
                             <li><Link to={"/lost-found-items"}>Lost And Found Post </Link></li>
                             <li><Link to={"/about"}>About</Link></li>
@@ -54,8 +54,8 @@ const Header = () => {
                     </div>
                     <img src={logo} className="w-20" alt="" />
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                <div className="navbar-center  hidden lg:flex">
+                    <ul className="menu  menu-horizontal  px-1">
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/lost-found-items"}>Lost And Found </Link></li>
                         <li><Link to={"/aboutus"}>About_Us</Link></li>
@@ -78,7 +78,7 @@ const Header = () => {
                                                 <img src={photoURL}></img>
                                             </div>
                                         </div>
-                                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                        <ul tabIndex={0} className="dropdown-content menu bg-black text-white opacity-80 rounded-box z-[1] w-52 p-2 shadow">
                                             <li><Link to={"/add-lost-found-item"}>Add Lost & Found Item </Link></li>
                                             <li><Link to={"/my-all-recovery"}>All Recovered Items </Link></li>
                                             <li><Link to={"/my-lost-found-items"}>Manage My Items </Link></li>

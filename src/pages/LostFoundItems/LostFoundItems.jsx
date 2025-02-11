@@ -27,7 +27,7 @@ const LostFoundItems = () => {
             .then(data => setLostFoundItems(data.data))
     }
     return (
-        <div>
+        <div className=" lg:pt-24 pt-32">
             <Helmet>
                 <title>Lost Found Items | Lost & Found</title>
             </Helmet>
