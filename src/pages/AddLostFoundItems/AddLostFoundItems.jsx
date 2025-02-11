@@ -50,7 +50,7 @@ const AddLostFoundItems = () => {
                         icon: "success"
                     });
 
-                    from.reset()
+                    from.reset(
                     
                 }
             })
