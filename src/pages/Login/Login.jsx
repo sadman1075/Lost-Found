@@ -5,10 +5,11 @@ import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
-    const { googlesignin,loginUser } = useContext(AuthContext)
+    const { googlesignin, loginUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state || "/"
@@ -44,41 +45,46 @@ const Login = () => {
             })
     }
     return (
-        <div className="hero  min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-96 ">
-                    <Lottie animationData={register_lottie}></Lottie>
-                </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
-                    <h1 className="text-5xl font-bold mt-4 text-center">LogIn now!</h1>
+        <div>
+            <Helmet>
+                <title>Login | Lost & Found</title>
+            </Helmet>
+            <div className="hero  min-h-screen">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left w-96 ">
+                        <Lottie animationData={register_lottie}></Lottie>
+                    </div>
+                    <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
+                        <h1 className="text-5xl font-bold mt-4 text-center">LogIn now!</h1>
 
-                    <form className="card-body" onSubmit={handleLogin}>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn bg-black text-white">LogIn</button>
-                        </div>
-                        <div className="divider">Or</div>
-                        <div className="form-control  ">
-                            <button onClick={handlegooglesignin} className="btn bg-black text-white "><FcGoogle />Sign in with Google</button>
-                        </div>
-                        <p className="text-sm text-center lg:text-lg">Don't Have An Account? <Link className="text-red-500 font-bold" to={"/register"}>Register</Link></p>
+                        <form className="card-body" onSubmit={handleLogin}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
+                                <label className="label">
+                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                </label>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn bg-black text-white">LogIn</button>
+                            </div>
+                            <div className="divider">Or</div>
+                            <div className="form-control  ">
+                                <button onClick={handlegooglesignin} className="btn bg-black text-white "><FcGoogle />Sign in with Google</button>
+                            </div>
+                            <p className="text-sm text-center lg:text-lg">Don't Have An Account? <Link className="text-red-500 font-bold" to={"/register"}>Register</Link></p>
 
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
             </div>
         </div>
