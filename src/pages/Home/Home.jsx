@@ -3,6 +3,7 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import LatestLostFoundItems from "../LatestLostFoundItems/LatestLostFoundItems";
 import MarqueLostFound from "../MarqueLostFound/MarqueLostFound";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
                 <Banner></Banner>
                 <About></About>
                 <LatestLostFoundItems></LatestLostFoundItems>
+                <Reviews></Reviews>
                 <MarqueLostFound></MarqueLostFound>
             </div>
         </div>
