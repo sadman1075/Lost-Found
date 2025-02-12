@@ -58,7 +58,7 @@ const Registration = () => {
 
     }
     return (
-        <div>
+        <div className="pt-24">
             <Helmet>
                 <title>Registration | Lost & Found</title>
             </Helmet>

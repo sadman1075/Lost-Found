@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../Context/AuthContext";
-import logo from "../../../../public/logo.jpg"
+import logo from "../../../../public/logo.png"
 import toast from "react-hot-toast";
 
 const Header = () => {

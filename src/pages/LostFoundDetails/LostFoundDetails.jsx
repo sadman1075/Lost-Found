@@ -44,7 +44,7 @@ const LostFoundDetails = () => {
     }
 
     return (
-        <div>
+        <div className="pt-32">
             <Helmet>
                 <title>Lost Found Item Details | Lost & Found</title>
             </Helmet>
