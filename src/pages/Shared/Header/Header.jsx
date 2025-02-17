@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../../Context/AuthContext";
 import logo from "../../../../public/logo.png"
 import toast from "react-hot-toast";
+import { MdDarkMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
-const Header = () => {
+
+
+const Header = ({ handleisactive, isactive }) => {
     const { user, logout } = useContext(AuthContext)
     const { photoURL, email, displayName } = user || ""
+
 
 
 
@@ -47,6 +52,14 @@ const Header = () => {
                             <li><Link to={"/lost-found-items"}>Lost And Found Post </Link></li>
                             <li><Link to={"/about"}>About</Link></li>
 
+                            {
+                                user ?
+                                    <>
+                                        <li><Link to={"/add-lost-found-item"}>Add Lost & Found Item </Link></li>
+                                        <li><Link to={"/my-all-recovery"}>All Recovered Items </Link></li>
+                                        <li><Link to={"/my-lost-found-items"}>Manage My Items </Link></li>
+                                    </> : ""
+                            }
 
 
 
@@ -62,10 +75,31 @@ const Header = () => {
 
 
 
+                        {
+                            user ?
+                                <>
+                                    <li><Link to={"/add-lost-found-item"}>Add Lost & Found Item </Link></li>
+                                    <li><Link to={"/my-all-recovery"}>All Recovered Items </Link></li>
+                                    <li><Link to={"/my-lost-found-items"}>Manage My Items </Link></li>
+                                </> : ""
+                        }
+
+
+
+
+
                     </ul>
                 </div>
 
                 <div className="navbar-end">
+                  <div className="mr-4">
+                  {
+                        isactive.cart ? <Link className="text-3xl" onClick={() => handleisactive("selected")} ><MdDarkMode />
+                        </Link> : <Link className="text-3xl" onClick={() => handleisactive("cart")} ><MdOutlineDarkMode />
+                        </Link>
+                    }
+                  </div>
+                 
                     {
                         user ?
                             <>
@@ -79,9 +113,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-black text-white opacity-80 rounded-box z-[1] w-52 p-2 shadow">
-                                            <li><Link to={"/add-lost-found-item"}>Add Lost & Found Item </Link></li>
-                                            <li><Link to={"/my-all-recovery"}>All Recovered Items </Link></li>
-                                            <li><Link to={"/my-lost-found-items"}>Manage My Items </Link></li>
+
 
                                         </ul>
                                     </div>
@@ -93,7 +125,11 @@ const Header = () => {
 
                             </>
                             :
-                            <Link to={"/login"} className="btn bg-black text-white">Log In</Link>
+                            <>
+
+                                <Link to={"/login"} className="btn bg-black text-white">Log In</Link>
+
+                            </>
 
 
 
