@@ -38,9 +38,9 @@ const LostFoundItems = () => {
             <Helmet>
                 <title>Lost Found Items | Lost & Found</title>
             </Helmet>
-            <div className="flex justify-center gap-6">
-                <div className=" flex gap-3 pt-4">
-                    <select name="blood_group" onChange={(e) => setAction(e.target.value)} className="select select-bordered w-full lg:w-[300px]" required>
+            <div className="lg:flex justify-center gap-6">
+                <div className=" flex justify-center gap-3 pt-4">
+                    <select name="blood_group" onChange={(e) => setAction(e.target.value)} className="select select-bordered w-60 lg:w-[300px]" required>
                         <option selected value={""}>Filter by Post Type</option>
                         <option>Lost</option>
                         <option>Found</option>
@@ -50,7 +50,7 @@ const LostFoundItems = () => {
 
                 </div>
                 <div className="flex gap-2 pt-4 justify-center items-center">
-                    <input type="text" placeholder="Search" className="input input-bordered w-40 md:w-auto" onChange={e => setSearch(e.target.value)} />
+                    <input type="text" placeholder="Search" className="input input-bordered w-60 md:w-auto" onChange={e => setSearch(e.target.value)} />
                     <button className="btn  bg-black text-white" onClick={handleSearch}>Search</button>
 
                 </div>
