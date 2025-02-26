@@ -25,10 +25,13 @@ const Root = () => {
 
     }
     return (
-        <div className="max-w-7xl mx-auto " data-theme={`${isactive.cart?"light":"dark"}`}>
+        <div className="" data-theme={`${isactive.cart ? "light" : "dark"}`}>
             <Header handleisactive={handleisactive} isactive={isactive} setactive={setactive}></Header>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className="max-w-7xl mx-auto ">
+                <Outlet></Outlet>
+                <Footer></Footer>
+            </div>
+
         </div>
     );
 };

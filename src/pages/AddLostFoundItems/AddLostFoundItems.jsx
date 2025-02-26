@@ -63,7 +63,7 @@ const AddLostFoundItems = () => {
             <Helmet>
                 <title>Add Lost Found Items | Lost & Found</title>
             </Helmet>
-            <div className="bg-[#F4F3F0] pt-20">
+            <div className="bg-base-100 pt-20">
                 <div>
                     <h1 className="text-4xl font-bold rancho text-center pt-8">Add Lost And Found Items</h1>
                     <h1 className="text-lg  text-center pt-6 px-2 lg:px-10">
@@ -75,7 +75,7 @@ const AddLostFoundItems = () => {
                             <label className="label">
                                 <span className="label-text">Post Type</span>
                             </label>
-                            <select className="select select-ghost border-1 border-gray-300 bg-white w-full " name="postType" required>
+                            <select className="select select-ghost input input-bordered w-full " name="postType" required>
                                 <option disabled selected>Select The Post type</option>
                                 <option>Lost</option>
                                 <option>Found</option>
